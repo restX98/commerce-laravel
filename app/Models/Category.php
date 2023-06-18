@@ -12,4 +12,8 @@ class Category extends Model
     public function product() {
         return $this->hasMany(Product::class, 'category_id');
     }
+
+    protected function getUrlAttribute() {
+        return url("/category/$this->cod");
+    }
 }

@@ -25,14 +25,18 @@
             </div>
         </div>
     </div>
-    <div class="bottom-bar">
-        <div class="container">
-        <ul class="categories">
-            <li><a href="$category->url"> category </a></li>
-            <li><a href="$category->url"> category </a></li>
-            <li><a href="$category->url"> category </a></li>
-            <li><a href="$category->url"> category </a></li>
-        </ul>
+    @php
+        $categories = \App\Models\Category::all();
+    @endphp
+    @unless (count($categories) === 0)
+        <div class="bottom-bar">
+            <div class="container">
+            <ul class="categories">
+                @foreach ($categories as $category)
+                    <li><a href="{{ $category->url }}">{{ strtoupper($category->name) }}</a></li>
+                @endforeach
+            </ul>
+            </div>
         </div>
-    </div>
+    @endunless
 </header>

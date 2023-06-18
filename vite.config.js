@@ -8,6 +8,8 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/css/app.css',
                 'resources/css/header.css',
+                'resources/css/category.css',
+                'resources/css/product.css',
             ],
             refresh: true,
         }),
