@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CustomerController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,11 +18,33 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->middleware('auth:customer');
 
 // PRODUCT
 //  - Index
-Route::get('/category/{category:cod}', [ProductController::class, 'index']);
+Route::get('/category/{category:cod}', [ProductController::class, 'index'])
+    ->middleware('auth:customer');
 
 //  - Show
-Route::get('/product/{product:cod}', [ProductController::class, 'show']);
+Route::get('/product/{product:cod}', [ProductController::class, 'show'])
+    ->middleware('auth:customer');
+
+
+// CUSTOMER
+// - Login
+Route::get('/login', [CustomerController::class, 'login'])
+    ->name('login')
+    ->middleware('guest:customer');
+
+// - Authenticate
+Route::post('/login', [CustomerController::class, 'authenticate']);
+
+// - Logout
+Route::get('/logout', [CustomerController::class, 'logout']);
+
+// - Create
+Route::get('/signin', [CustomerController::class, 'create'])
+    ->middleware('guest:customer');
+
+// - Store
+Route::post('/signin', [CustomerController::class, 'store']);
