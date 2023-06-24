@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        for($i = 0; $i<10; $i++){
+        for ($i = 0; $i < 10; $i++) {
             $category = Category::factory()->create();
 
             Product::factory(10)->create([

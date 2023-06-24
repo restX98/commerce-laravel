@@ -9,11 +9,13 @@ class Category extends Model
 {
     use HasFactory;
 
-    public function product() {
+    public function product()
+    {
         return $this->hasMany(Product::class, 'category_id');
     }
 
-    protected function getUrlAttribute() {
+    protected function getUrlAttribute()
+    {
         return url("/category/$this->cod");
     }
 }
