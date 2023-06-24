@@ -6,58 +6,57 @@
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
-  
+
 #profile .personal-info {
     grid-column: 1 / -1;
 }
-  
+
 #profile .info-row {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
-  
+
 #profile .info-row label {
     width: 120px;
     font-weight: bold;
 }
-  
+
 #profile .orders,
 #profile .addresses {
     background-color: #f5f5f5;
     padding: 20px;
 }
-  
+
 #profile .orders h2,
 #profile .addresses h2 {
     margin-bottom: 10px;
 }
-  
+
 #profile .order-list,
 #profile .address-list {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
-  
+
 #profile .order-list li,
 #profile .address-list li {
     margin-bottom: 5px;
 }
-  
-  /* Media query per dispositivi mobili */
+
+/* Media query per dispositivi mobili */
 @media (max-width: 768px) {
     #profile .profile {
         grid-template-columns: 1fr;
     }
-    
+
     #profile .personal-info {
         grid-column: 1;
     }
-    
+
     #profile .orders,
     #profile .addresses {
         grid-column: 1;
     }
 }
-  

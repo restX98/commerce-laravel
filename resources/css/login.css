@@ -8,7 +8,7 @@
     min-height: 100vh;
     background-color: #f1f1f1;
 }
-  
+
 #login .container {
     background-color: #fff;
     border-radius: 4px;
@@ -17,24 +17,24 @@
     max-width: 400px;
     width: 100%;
 }
-  
+
 #login .login-form {
     display: flex;
     flex-direction: column;
 }
-  
+
 #login h1 {
     text-align: center;
     margin-bottom: 20px;
 }
-  
+
 #login input {
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-  
+
 #login button {
     padding: 10px;
     background-color: #007bff;
@@ -43,35 +43,34 @@
     border-radius: 4px;
     cursor: pointer;
 }
-  
+
 #login .forgot-password {
     text-align: center;
     margin-top: 10px;
     color: #999;
     cursor: pointer;
 }
-  
+
 #login .register-link {
     text-align: center;
     margin-top: 10px;
 }
-  
+
 #login .register-link a {
     color: #007bff;
     text-decoration: none;
 }
-  
+
 #login .register-link a:hover {
     text-decoration: underline;
 }
-  
+
 @media (max-width: 600px) {
     #login .container {
         padding: 20px;
     }
-    
+
     #login h1 {
         font-size: 24px;
     }
 }
-  
