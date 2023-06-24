@@ -46,8 +46,12 @@ class Basket extends ItemsContainer
         }
     }
 
-    public function getTotalQuantityAttribute()
+    public function removeProduct(Product $product)
     {
-        return $this->items->sum('quantity');
+        $item = $this->items()->where('product_id', $product->id)->firstOrFail();
+
+        if ($item) {
+            $item->delete();
+        }
     }
 }

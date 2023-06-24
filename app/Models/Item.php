@@ -23,4 +23,9 @@ class Item extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
+    public function getSubTotalPriceAttribute()
+    {
+        return $this->product->price * $this->quantity;
+    }
 }

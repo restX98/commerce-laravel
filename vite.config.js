@@ -8,6 +8,8 @@ export default defineConfig({
                 "resources/js/app.js",
                 "resources/css/app.css",
                 "resources/js/miniCart.js",
+                "resources/js/cart.js",
+                "resources/css/cart.css",
                 "resources/css/header.css",
                 "resources/css/category.css",
                 "resources/js/product.js",

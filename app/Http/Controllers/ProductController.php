@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Basket;
 use App\Models\Product;
 use App\Models\Category;
-use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -21,20 +19,6 @@ class ProductController extends Controller
     {
         return view('products.show', [
             'product' => $product,
-        ]);
-    }
-
-    public function addToCart(Request $request)
-    {
-        $basket = Basket::getCurrentBasket();
-
-        $product = Product::where('cod', $request->cod)->firstOrFail();
-
-        $basket->addProduct($product);
-
-        return response()->json([
-            'success' => true,
-            'totalQuantity' => $basket->totalQuantity
         ]);
     }
 }

@@ -52,11 +52,14 @@ class Product {
     handleRemoveFromCart() {
         this.manager.clearErrors();
 
-        fetch("/hw1/api/removeFromCart-api.php", {
+        fetch("/cart/remove-product", {
             method: "POST",
             body: JSON.stringify({ cod: this.cod }),
             headers: {
                 "Content-Type": "application/json",
+                "X-CSRF-TOKEN": document
+                    .querySelector('meta[name="csrf-token"]')
+                    .getAttribute("content"),
             },
         })
             .then((response) => response.json())

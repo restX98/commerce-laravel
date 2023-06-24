@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
 
@@ -28,10 +29,19 @@ Route::get('/category/{category:cod}', [ProductController::class, 'index'])
 Route::get('/product/{product:cod}', [ProductController::class, 'show'])
     ->middleware('auth:customer');
 
-// - Add To Cart
-Route::post('/cart/add-product', [ProductController::class, 'addToCart'])
+
+// CART
+//  - Show
+Route::get('/cart', [CartController::class, 'show'])
     ->middleware('auth:customer');
 
+// - Add Product
+Route::post('/cart/add-product', [CartController::class, 'addProduct'])
+    ->middleware('auth:customer');
+
+// - Add To Cart
+Route::post('/cart/remove-product', [CartController::class, 'removeProduct'])
+    ->middleware('auth:customer');
 
 // CUSTOMER
 // - Show

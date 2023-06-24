@@ -21,4 +21,14 @@ class ItemsContainer extends Model
     {
         return $this->hasMany(Item::class, 'container_id');
     }
+
+    public function getTotalQuantityAttribute()
+    {
+        return $this->items->sum('quantity');
+    }
+
+    public function getTotalPriceAttribute()
+    {
+        return $this->items->sum('subTotalPrice');
+    }
 }

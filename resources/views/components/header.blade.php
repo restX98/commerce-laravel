@@ -13,7 +13,12 @@
                     <img src="{{ asset('/icons/user.svg') }}" alt="User Icon">
                 </a>
             </div>
-            <div class="cart icon" data-quantity="10" >
+            @php
+                $customer = Auth::user();
+                $basket = $customer->basket;
+                $quantity = $basket ? $basket->totalQuantity : 0;
+            @endphp
+            <div class="cart icon" data-quantity="{{ $quantity }}">
                 <a href="/cart">
                     <img src="{{ asset('/icons/cart.svg') }}" alt="Cart Icon">
                 </a>
@@ -31,11 +36,11 @@
     @unless (count($categories) === 0)
         <div class="bottom-bar">
             <div class="container">
-            <ul class="categories">
-                @foreach ($categories as $category)
-                    <li><a href="{{ $category->url }}">{{ strtoupper($category->name) }}</a></li>
-                @endforeach
-            </ul>
+                <ul class="categories">
+                    @foreach ($categories as $category)
+                        <li><a href="{{ $category->url }}">{{ strtoupper($category->name) }}</a></li>
+                    @endforeach
+                </ul>
             </div>
         </div>
     @endunless

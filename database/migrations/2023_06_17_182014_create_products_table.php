@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('cod');
             $table->string('name');
-            $table->decimal('amount', 6, 2);
+            $table->decimal('price', 6, 2);
             $table->timestamps();
 
             $table->foreignId('category_id')->index('idx_category');

@@ -19,7 +19,7 @@ class ProductFactory extends Factory
         return [
             'cod' => fake()->numerify('PRD###'),
             'name' => fake()->words(3, true),
-            'amount' => fake()->randomFloat(2, 20, 1000),
+            'price' => fake()->randomFloat(2, 20, 1000),
         ];
     }
 }
