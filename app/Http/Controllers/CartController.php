@@ -12,7 +12,6 @@ class CartController extends Controller
     {
         $basket = Basket::getCurrentBasket();
 
-        // dd($basket->items[0]->product->cod);
         return view('cart.show', [
             "basket" => $basket
         ]);

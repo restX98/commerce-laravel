@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CustomerController;
 
 /*
@@ -30,19 +31,6 @@ Route::get('/product/{product:cod}', [ProductController::class, 'show'])
     ->middleware('auth:customer');
 
 
-// CART
-//  - Show
-Route::get('/cart', [CartController::class, 'show'])
-    ->middleware('auth:customer');
-
-// - Add Product
-Route::post('/cart/add-product', [CartController::class, 'addProduct'])
-    ->middleware('auth:customer');
-
-// - Add To Cart
-Route::post('/cart/remove-product', [CartController::class, 'removeProduct'])
-    ->middleware('auth:customer');
-
 // CUSTOMER
 // - Show
 Route::get('/profile', [CustomerController::class, 'show'])
@@ -65,3 +53,27 @@ Route::get('/signin', [CustomerController::class, 'create'])
 
 // - Store
 Route::post('/signin', [CustomerController::class, 'store']);
+
+
+// CART
+//  - Show
+Route::get('/cart', [CartController::class, 'show'])
+    ->middleware('auth:customer');
+
+// - Add Product
+Route::post('/cart/add-product', [CartController::class, 'addProduct'])
+    ->middleware('auth:customer');
+
+// - Add To Cart
+Route::post('/cart/remove-product', [CartController::class, 'removeProduct'])
+    ->middleware('auth:customer');
+
+
+// CHECKOUT
+// - Show
+Route::get('/checkout', [CheckoutController::class, 'show'])
+    ->middleware('auth:customer');
+
+// - Place Order
+Route::post('/checkout/place-order', [CheckoutController::class, 'placeOrder'])
+    ->middleware('auth:customer');

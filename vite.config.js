@@ -10,6 +10,8 @@ export default defineConfig({
                 "resources/js/miniCart.js",
                 "resources/js/cart.js",
                 "resources/css/cart.css",
+                "resources/js/checkout.js",
+                "resources/css/checkout.css",
                 "resources/css/header.css",
                 "resources/css/category.css",
                 "resources/js/product.js",
