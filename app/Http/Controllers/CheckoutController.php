@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Basket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CheckoutController extends Controller
 {
@@ -18,7 +20,7 @@ class CheckoutController extends Controller
 
     public function placeOrder(Request $request)
     {
-        $validatedData = $request->validate([
+        $formFields = $request->validate([
             'street' => 'required',
             'houseNumber' => 'required',
             'postalCode' => 'required',
@@ -27,9 +29,19 @@ class CheckoutController extends Controller
             'country' => 'required',
         ]);
 
+        /** @var Customer $customer */
+        $customer = Auth::user();
+
+        $address = $customer->addAddress($formFields);
+
+        $basket = Basket::getCurrentBasket();
+
+        $order = Order::placeOrder($basket, $address);
+
         return response()->json([
-            'success' => false,
+            'success' => true,
             'message' => 'Operazione completata con successo',
+            'address' => $order
         ]);
     }
 }

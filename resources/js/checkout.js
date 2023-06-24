@@ -73,7 +73,7 @@ class Checkout {
                         "Ops, qualcosa è andato storto."
                     );
                 } else {
-                    window.location.href = "/hw1/home";
+                    window.location.href = "/";
                 }
             })
             .catch((err) => {
