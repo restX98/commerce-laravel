@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Basket;
 use App\Models\Product;
 use App\Models\Category;
-use Illuminate\Database\Eloquent\Casts\Json;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller

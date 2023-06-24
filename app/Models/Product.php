@@ -10,15 +10,23 @@ class Product extends Model
 {
     use HasFactory;
 
-    public function category() {
+    public function category()
+    {
         return $this->belongsTo(Category::class);
     }
 
-    protected function getUrlAttribute() {
+    protected function getUrlAttribute()
+    {
         return url("/product/$this->cod");
     }
 
-    protected function getImageAttribute() {
+    protected function getImageAttribute()
+    {
         return url("https://picsum.photos/id/$this->id/600");
+    }
+
+    public function item()
+    {
+        return $this->hasOne(Item::class, 'product_id');
     }
 }
