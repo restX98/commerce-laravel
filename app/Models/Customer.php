@@ -16,4 +16,9 @@ class Customer extends Authenticatable
         'phoneNumber',
         'password',
     ];
+
+    public function basket()
+    {
+        return $this->hasOne(Basket::class, 'customer_id');
+    }
 }
