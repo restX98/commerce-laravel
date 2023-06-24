@@ -13,11 +13,6 @@ class Basket extends ItemsContainer
         'status' => self::STATUS_CART,
     ];
 
-    public function customer()
-    {
-        return $this->belongsTo(Customer::class);
-    }
-
     public static function getCurrentBasket()
     {
         $customer = Auth::user();
@@ -53,5 +48,10 @@ class Basket extends ItemsContainer
         if ($item) {
             $item->delete();
         }
+    }
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
     }
 }

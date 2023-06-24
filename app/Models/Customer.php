@@ -17,8 +17,24 @@ class Customer extends Authenticatable
         'password',
     ];
 
+    public function addAddress(array $formFields)
+    {
+        $formFields['customer_id'] = $this->id;
+        return Address::create($formFields);
+    }
+
     public function basket()
     {
-        return $this->hasOne(Basket::class, 'customer_id');
+        return $this->hasOne(Basket::class, 'customer_id')->where('status', Basket::STATUS_CART);
+    }
+
+    public function order()
+    {
+        return $this->hasMany(Order::class, 'customer_id');
+    }
+
+    public function address()
+    {
+        return $this->hasMany(Address::class, 'customer_id');
     }
 }
