@@ -23,21 +23,29 @@
                 <span id="phone">{{ $customer->phoneNumber }}</span>
             </div>
         </div>
-    
+
         <div class="orders">
             <h2>Ordini</h2>
+            @php
+                $orders = $customer->order()->get();
+            @endphp
             <ul class="order-list">
-                <li>Ordine 1</li>
-                <li>Ordine 2</li>
-                <li>Ordine 3</li>
+                @foreach ($orders as $order)
+                    <li>{{ $order->toString() }}</li>
+                @endforeach
             </ul>
         </div>
-    
+
         <div class="addresses">
             <h2>Indirizzi</h2>
-                {{-- TODO: Add address --}}
+            @php
+                $addresses = $customer->address()->get();
+            @endphp
+            <ul class="address-list">
+                @foreach ($addresses as $address)
+                    <li>{{ $address->toString() }}</li>
+                @endforeach
             </ul>
         </div>
     </div>
-
 @endsection
