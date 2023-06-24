@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@vite(['resources/js/miniCart.js'])
+
 @section('body')
     <x-header />
 

@@ -28,6 +28,10 @@ Route::get('/category/{category:cod}', [ProductController::class, 'index'])
 Route::get('/product/{product:cod}', [ProductController::class, 'show'])
     ->middleware('auth:customer');
 
+// - Add To Cart
+Route::post('/cart/add-product', [ProductController::class, 'addToCart'])
+    ->middleware('auth:customer');
+
 
 // CUSTOMER
 // - Show

@@ -30,4 +30,24 @@ class Basket extends ItemsContainer
             ]);
         }
     }
+
+    public function addProduct(Product $product)
+    {
+        $existingItem = $this->items()->where('product_id', $product->id)->first();
+
+        if ($existingItem) {
+            $existingItem->quantity++;
+            $existingItem->save();
+        } else {
+            Item::create([
+                'container_id' => $this->id,
+                'product_id' => $product->id,
+            ]);
+        }
+    }
+
+    public function getTotalQuantityAttribute()
+    {
+        return $this->items->sum('quantity');
+    }
 }

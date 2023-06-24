@@ -26,9 +26,15 @@ class ProductController extends Controller
 
     public function addToCart(Request $request)
     {
+        $basket = Basket::getCurrentBasket();
+
+        $product = Product::where('cod', $request->cod)->firstOrFail();
+
+        $basket->addProduct($product);
+
         return response()->json([
             'success' => true,
-            'req' => $request
+            'totalQuantity' => $basket->totalQuantity
         ]);
     }
 }
