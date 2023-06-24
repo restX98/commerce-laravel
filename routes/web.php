@@ -31,6 +31,10 @@ Route::get('/product/{product:cod}', [ProductController::class, 'show'])
 
 
 // CUSTOMER
+// - Show
+Route::get('/profile', [CustomerController::class, 'show'])
+    ->middleware('auth:customer');
+
 // - Login
 Route::get('/login', [CustomerController::class, 'login'])
     ->name('login')

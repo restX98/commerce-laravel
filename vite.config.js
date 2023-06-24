@@ -10,6 +10,7 @@ export default defineConfig({
                 'resources/css/header.css',
                 'resources/css/category.css',
                 'resources/css/product.css',
+                'resources/css/profile.css',
                 'resources/css/register.css',
                 'resources/css/login.css',
             ],
