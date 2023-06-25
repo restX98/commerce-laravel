@@ -10,33 +10,54 @@ use Illuminate\Support\Facades\Auth;
 class CustomerController extends Controller
 {
 
-    public function show() {
+    public function show()
+    {
         $customer = Auth::user();
         return view('customers.show', [
             'customer' => $customer
         ]);
     }
 
-    public function login() {
+    public function login()
+    {
         return view('customers.login');
     }
 
-    public function authenticate(Request $request) {
+    public function authenticate(Request $request)
+    {
         $formFields = $request->validate([
             'email' => ['required', 'email'],
             'password' => 'required',
         ]);
-        
-        if(auth('customer')->attempt($formFields)) {
-            $request->session()->regenerate();
 
-            return redirect('/')->with('message', 'Hai effettuato l\'accesso');
+        $user = Customer::where('email', $formFields['email'])->first();
+        if (!$user) {
+            return response()->json([
+                'message' => 'Validation failed.',
+                'errors' => [
+                    'email' => ['Non esiste un accound con questa mail']
+                ]
+            ], 422);
         }
 
-        return back()->withErrors(['email' => 'Credenziali invalide'])->onlyInput("email");
+        if (!auth('customer')->attempt($formFields)) {
+            return response()->json([
+                'message' => 'Validation failed.',
+                'errors' => [
+                    'password' => ['Password errata']
+                ]
+            ], 422);
+        }
+
+        $request->session()->regenerate();
+
+        return response()->json([
+            'success' => true,
+        ]);
     }
 
-    public function logout(Request $request) {
+    public function logout(Request $request)
+    {
         auth('customer')->logout();
 
         $request->session()->invalidate();
@@ -45,11 +66,13 @@ class CustomerController extends Controller
         return redirect('/login')->with('message', 'User Logged Out!');
     }
 
-    public function create() {
+    public function create()
+    {
         return view('customers.create');
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $formFields = $request->validate([
             'firstName' => ['required', 'min:3'],
             'lastName' => ['required', 'min:3'],
@@ -62,8 +85,10 @@ class CustomerController extends Controller
 
         $customer = Customer::create($formFields);
 
-        auth()->login($customer);
+        auth('customer')->login($customer);
 
-        return redirect('/')->with('success', 'true');
+        return response()->json([
+            'success' => true
+        ]);
     }
 }

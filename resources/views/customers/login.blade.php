@@ -1,5 +1,6 @@
 @extends('layouts.blank')
 
+@vite(['resources/js/login.js'])
 @vite(['resources/css/login.css'])
 
 @section('content')
@@ -11,14 +12,14 @@
 
                 <h1>Login</h1>
 
-                <input type="text" name="email" id="email-input" placeholder="Email" >
+                <input type="text" name="email" id="email-input" placeholder="Email">
                 <div id="email-error" class="error-message">
                     @error('email')
                         {{ $message }}
                     @enderror
                 </div>
 
-                <input type="password" name="password" id="password-input" placeholder="Password" >
+                <input type="password" name="password" id="password-input" placeholder="Password">
                 <div id="password-error" class="error-message">
                     @error('email')
                         {{ $message }}
