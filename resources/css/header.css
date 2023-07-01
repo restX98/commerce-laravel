@@ -110,6 +110,8 @@ header .categories {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 header .categories li {
@@ -123,6 +125,10 @@ header .categories li:first-child {
 header .categories li a {
     color: #f2f2f2;
     text-decoration: none;
+}
+
+header .categories li a:hover {
+    text-decoration: underline;
 }
 
 @media (max-width: 600px) {
