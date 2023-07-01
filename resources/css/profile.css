@@ -47,7 +47,7 @@
 
 /* Media query per dispositivi mobili */
 @media (max-width: 768px) {
-    #profile .profile {
+    #profile {
         grid-template-columns: 1fr;
     }
 

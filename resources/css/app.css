@@ -20,7 +20,7 @@ a {
 }
 
 /* Media Query per dispositivi mobili */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .error-message {
         font-size: 12px;
     }

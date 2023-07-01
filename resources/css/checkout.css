@@ -1,4 +1,8 @@
-#checkout form {
+#checkout {
+    margin-inline: 20px;
+}
+
+#checkout .address-form {
     display: flex;
     justify-content: space-between;
     max-width: 1200px;
@@ -72,21 +76,23 @@
 }
 
 @media (max-width: 768px) {
-    #checkout {
+    #checkout .address-form {
         flex-direction: column;
+        margin-top: 0;
     }
 
     #checkout .summary {
-        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         background-color: #fff;
         padding: 10px;
+        order: -1;
     }
 
     #checkout .address {
-        margin-top: 80px;
         overflow-y: auto;
+        margin: 20px 0 0;
+        width: 100%;
     }
 }

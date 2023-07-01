@@ -131,7 +131,7 @@ header .categories li a:hover {
     text-decoration: underline;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     header .separator {
         flex-basis: 100%;
         order: 1;

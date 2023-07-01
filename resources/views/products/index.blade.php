@@ -11,7 +11,6 @@
             <x-product-card :product="$product" />
         @endforeach
     </div>
-    <div class="arrows">
-        {{ $products->links('vendor.pagination.custom') }}
-    </div>
+
+    {{ $products->links('vendor.pagination.custom') }}
 @endsection
