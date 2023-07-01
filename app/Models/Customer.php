@@ -30,7 +30,8 @@ class Customer extends Authenticatable
 
     public function order()
     {
-        return $this->hasMany(Order::class, 'customer_id');
+        return $this->hasMany(Order::class, 'customer_id')
+            ->where('status', Order::STATUS_CREATED)->orWhere('status', Order::STATUS_SHIPPED);
     }
 
     public function address()
