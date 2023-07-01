@@ -12,5 +12,5 @@
         @endforeach
     </div>
 
-    {{ $products->links('vendor.pagination.custom') }}
+    {{ $products->withQueryString()->links('vendor.pagination.custom') }}
 @endsection

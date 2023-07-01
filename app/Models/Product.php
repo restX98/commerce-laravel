@@ -10,6 +10,18 @@ class Product extends Model
 {
     use HasFactory;
 
+    public function scopeFilter($query, array $filters)
+    {
+        if ($filters['search'] ?? false) {
+            $search = $filters['search'];
+            $query->where('name', 'like', '%' . $search . '%')
+                ->orWhere('cod', 'like', '%' . $search . '%')
+                ->orWhereHas('category', function ($query) use ($search) {
+                    $query->where('name', 'LIKE', '%' . $search . '%');
+                });
+        }
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);

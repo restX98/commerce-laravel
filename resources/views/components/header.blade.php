@@ -6,7 +6,11 @@
             <div class="logo">
                 <a href="/">Logo</a>
             </div>
-            <div class="separator">
+            <div class="search-bar">
+                <input type="text" placeholder="Search">
+                <button type="submit">
+                    <img src="{{ asset('/icons/search.svg') }}" alt="User Icon">
+                </button>
             </div>
             <div class="user icon">
                 <a href="/profile">

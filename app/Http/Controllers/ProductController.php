@@ -10,8 +10,14 @@ class ProductController extends Controller
     public function index(Category $category)
     {
         return view('products.index', [
-            'category' => $category,
             'products' => $category->product()->latest()->paginate(16)
+        ]);
+    }
+
+    public function search()
+    {
+        return view('products.index', [
+            'products' => Product::latest()->filter(request(['search']))->paginate(16)
         ]);
     }
 

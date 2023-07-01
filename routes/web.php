@@ -31,6 +31,10 @@ Route::get('/category/{category:cod}', [ProductController::class, 'index'])
 Route::get('/product/{product:cod}', [ProductController::class, 'show'])
     ->middleware('auth:customer');
 
+//  - Search
+Route::get('/search', [ProductController::class, 'search'])
+    ->middleware('auth:customer');
+
 
 // CUSTOMER
 // - Show

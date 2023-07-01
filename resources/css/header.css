@@ -27,14 +27,14 @@ header .logo a {
     text-decoration: none;
 }
 
-header .separator {
+header .search-bar {
     margin-left: 20px;
     flex: 1 1 auto;
     position: relative;
     max-width: 960px;
 }
 
-header .separator input[type="text"] {
+header .search-bar input[type="text"] {
     padding-left: 10px;
     padding-right: 70px;
     border: none;
@@ -44,7 +44,7 @@ header .separator input[type="text"] {
     border-radius: 8px;
 }
 
-header .separator button[type="submit"] {
+header .search-bar button[type="submit"] {
     padding: 5px 10px;
     border: none;
     position: absolute;
@@ -55,6 +55,10 @@ header .separator button[type="submit"] {
     height: 44px;
     border-radius: 8px;
     background-color: #fcbb6a;
+}
+
+header .search-bar button[type="submit"] img {
+    width: 100%;
 }
 
 header .icon {
@@ -132,7 +136,8 @@ header .categories li a:hover {
 }
 
 @media (max-width: 768px) {
-    header .separator {
+    header .search-bar {
+        margin-top: 10px;
         flex-basis: 100%;
         order: 1;
     }
