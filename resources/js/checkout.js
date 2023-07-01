@@ -2,6 +2,7 @@ class Checkout {
     constructor() {
         this.form = document.querySelector(".address-form");
 
+        this.addressRadioGroup = document.querySelector(".address-radio-group");
         this.streetInput = document.getElementById("street-input");
         this.houseNumberInput = document.getElementById("houseNumber-input");
         this.postalCodeInput = document.getElementById("postalCode-input");
@@ -9,6 +10,7 @@ class Checkout {
         this.provinceInput = document.getElementById("province-input");
         this.countryInput = document.getElementById("country-input");
 
+        this.addressError = document.getElementById("address-error");
         this.streetError = document.getElementById("street-error");
         this.houseNumberError = document.getElementById("houseNumber-error");
         this.postalCodeError = document.getElementById("postalCode-error");
@@ -24,16 +26,30 @@ class Checkout {
     handleSubmit(event) {
         event.preventDefault();
 
-        if (!this.validateFields()) {
+        const selectedAddress = this.addressRadioGroup.querySelector(
+            "input[type=radio]:checked"
+        );
+
+        if (!selectedAddress) {
+            this.displayError(this.addressError, "Seleziona un indirizzo");
             return;
         }
 
-        const street = this.streetInput.value.trim();
-        const houseNumber = this.houseNumberInput.value.trim();
-        const postalCode = this.postalCodeInput.value.trim();
-        const city = this.cityInput.value.trim();
-        const province = this.provinceInput.value.trim();
-        const country = this.countryInput.value.trim();
+        const body = {};
+        if (selectedAddress.value.trim() === "new-address") {
+            if (!this.validateFields()) {
+                return;
+            }
+
+            body.street = this.streetInput.value.trim();
+            body.houseNumber = this.houseNumberInput.value.trim();
+            body.postalCode = this.postalCodeInput.value.trim();
+            body.city = this.cityInput.value.trim();
+            body.province = this.provinceInput.value.trim();
+            body.country = this.countryInput.value.trim();
+        } else {
+            body.addressId = selectedAddress.value.trim();
+        }
 
         fetch("checkout/place-order", {
             method: "POST",
@@ -44,14 +60,7 @@ class Checkout {
                     .querySelector('meta[name="csrf-token"]')
                     .getAttribute("content"),
             },
-            body: JSON.stringify({
-                street,
-                houseNumber,
-                postalCode,
-                city,
-                province,
-                country,
-            }),
+            body: JSON.stringify(body),
         })
             .then((response) => response.json())
             .then((response) => {

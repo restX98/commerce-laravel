@@ -14,6 +14,7 @@ class Order extends ItemsContainer
         $address = $attributes[1];
 
         $basket->status = self::STATUS_CREATED;
+        $basket->address_id = $address->id;
         $basket->save();
 
         $this->status = self::STATUS_CREATED;
@@ -53,6 +54,6 @@ class Order extends ItemsContainer
 
     public function toString()
     {
-        return "$this->cod - $this->created_at - $this->upperStatus";
+        return "$this->cod - $this->updated_at - $this->upperStatus";
     }
 }

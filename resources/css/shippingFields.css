@@ -1,0 +1,91 @@
+.shipping-fields {
+    margin-top: 20px;
+}
+
+.shipping-fields .radio-button {
+    display: inline-block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.shipping-fields .radio-button input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.shipping-fields .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+.shipping-fields .radio-button:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.shipping-fields .radio-button input:checked ~ .checkmark {
+    background-color: #2196f3;
+}
+
+.shipping-fields .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.shipping-fields .radio-button input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.shipping-fields .radio-button .checkmark:after {
+    top: 6px;
+    left: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+.shipping-fields:has(.radio-button input:checked) #address-error {
+    display: none !important;
+}
+
+.shipping-fields:has(.radio-button input#new-address:checked) .address-group {
+    display: flex;
+}
+
+.shipping-fields .address-group {
+    display: none;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.shipping-fields .address-group.active {
+    display: flex;
+}
+
+.shipping-fields .address-group input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.shipping-fields .shipping-address-item {
+    width: 100%;
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    user-select: none;
+}

@@ -51,21 +51,6 @@
     background-color: #007bff6c;
 }
 
-#checkout .address-group {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-}
-
-#checkout .address-group input {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
 #checkout button {
     padding: 10px;
     background-color: #007bff;
