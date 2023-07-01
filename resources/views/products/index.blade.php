@@ -32,4 +32,7 @@
             </div>
         @endforeach
     </div>
+    <div class="arrows">
+        {{ $products->links('vendor.pagination.custom') }}
+    </div>
 @endsection

@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
             $category = Category::factory()->create();
 
-            Product::factory(10)->create([
+            Product::factory(60)->create([
                 'category_id' => $category->id
             ]);
         }

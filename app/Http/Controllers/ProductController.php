@@ -11,7 +11,7 @@ class ProductController extends Controller
     {
         return view('products.index', [
             'category' => $category,
-            'products' => $category->product()->get()
+            'products' => $category->product()->latest()->paginate(16)
         ]);
     }
 
