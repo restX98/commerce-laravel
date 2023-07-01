@@ -4,12 +4,12 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 20px;
+    padding-inline: 20px;
 }
 
 #search .product {
     display: flex;
     flex-direction: column;
-    padding: 20px;
     border-radius: 4px;
 }
 
@@ -24,6 +24,8 @@
 #search .product .info {
     width: 100%;
     margin-top: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 #search .product .title {
@@ -32,13 +34,13 @@
     margin-top: 10px;
 }
 
-#search .product .price {
+#search .product .details-container .price {
     font-size: 20px;
     margin-top: 5px;
     float: right;
 }
 
-#search .product .details {
+#search .product .details-container .details {
     margin-top: 10px;
     color: rgba(0, 0, 0, 0.6);
     font-size: 12px;
@@ -68,7 +70,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    float: right;
+    margin: 5px 0 0 auto;
 }
 
 #search .product .add-to-cart img {
