@@ -23,9 +23,9 @@ class Address extends Model
         return $this->belongsTo(Customer::class);
     }
 
-    public function ItemsContainer()
+    public function itemsContainer()
     {
-        return $this->belongsTo(ItemsContainer::class);
+        return $this->hasOne(ItemsContainer::class, 'address_id');
     }
 
     public function toString()

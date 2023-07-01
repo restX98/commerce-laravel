@@ -1,0 +1,80 @@
+#thankyou {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 50px auto 0;
+    position: relative;
+    gap: 30px;
+    padding-inline: 20px;
+}
+
+#thankyou .items {
+    width: 70%;
+    background-color: #f1f1f1;
+    padding: 30px;
+}
+
+#thankyou .items h1 {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#thankyou .items ul {
+    list-style: none;
+    padding: 0;
+}
+
+#thankyou .items li.product {
+    display: flex; /* Mette in linea il div product-details */
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#thankyou .items .product-image {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+#thankyou .product-details {
+    flex: 1;
+}
+
+#thankyou .product-details h3,
+#thankyou .product-details p {
+    margin: 0;
+}
+
+#thankyou .address {
+    width: 30%;
+    height: min-content;
+    background-color: #f1f1f1;
+    padding: 30px;
+}
+
+#thankyou .address h2 {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    #thankyou {
+        margin-top: 0;
+        flex-direction: column;
+    }
+
+    #thankyou .address {
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        padding: 10px;
+        order: -1;
+    }
+
+    #thankyou .items {
+        margin: 20px 0 0;
+        overflow-y: auto;
+        width: 100%;
+    }
+}

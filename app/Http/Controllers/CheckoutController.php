@@ -57,7 +57,7 @@ class CheckoutController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'Operazione completata con successo',
-            'orderID' => $order->cod
+            'orderNo' => $order->cod
         ]);
     }
 }

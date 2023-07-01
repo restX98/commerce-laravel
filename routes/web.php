@@ -5,6 +5,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,4 +77,10 @@ Route::get('/checkout', [CheckoutController::class, 'show'])
 
 // - Place Order
 Route::post('/checkout/place-order', [CheckoutController::class, 'placeOrder'])
+    ->middleware('auth:customer');
+
+
+// ORDER
+// -ThankyouPage
+Route::get('/thankyou', [OrderController::class, 'thankyou'])
     ->middleware('auth:customer');

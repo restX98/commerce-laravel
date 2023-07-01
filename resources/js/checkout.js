@@ -82,7 +82,7 @@ class Checkout {
                         "Ops, qualcosa è andato storto."
                     );
                 } else {
-                    window.location.href = "/";
+                    window.location.href = `/thankyou?orderNo=${response.orderNo}`;
                 }
             })
             .catch((err) => {

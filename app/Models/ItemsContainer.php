@@ -36,6 +36,6 @@ class ItemsContainer extends Model
 
     public function address()
     {
-        return $this->hasOne(Address::class, 'address_id');
+        return $this->belongsTo(Address::class);
     }
 }
