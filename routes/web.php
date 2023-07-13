@@ -69,7 +69,7 @@ Route::get('/cart', [CartController::class, 'show'])
 Route::post('/cart/add-product', [CartController::class, 'addProduct'])
     ->middleware('auth:customer');
 
-// - Add To Cart
+// - Remove From Cart
 Route::post('/cart/remove-product', [CartController::class, 'removeProduct'])
     ->middleware('auth:customer');
 

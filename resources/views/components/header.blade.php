@@ -7,10 +7,12 @@
                 <a href="/">Logo</a>
             </div>
             <div class="search-bar">
-                <input type="text" placeholder="Search">
-                <button type="submit">
-                    <img src="{{ asset('/icons/search.svg') }}" alt="User Icon">
-                </button>
+                <form action="/search" method="GET">
+                    <input type="text" name="search" placeholder="Search">
+                    <button type="submit">
+                        <img src="{{ asset('/icons/search.svg') }}" alt="User Icon">
+                    </button>
+                </form>
             </div>
             <div class="user icon">
                 <a href="/profile">
